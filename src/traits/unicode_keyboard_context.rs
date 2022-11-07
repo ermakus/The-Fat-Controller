@@ -32,9 +32,9 @@ use super::FallibleContext;
 /// fn select_all<C>(ctx: &mut C) -> Result<(), GenericError<C::PlatformError>>
 ///     where C: KeyboardContext + UnicodeKeyboardContext + FallibleContext
 /// {
-///     ctx.key_down(Key::ControlOrMeta)?;
+///     ctx.key_down(Key::Meta)?;
 ///     ctx.unicode_char('a')?;
-///     ctx.key_up(Key::ControlOrMeta)
+///     ctx.key_up(Key::Meta)
 /// }
 /// ```
 ///
@@ -45,9 +45,9 @@ use super::FallibleContext;
 /// fn select_all<C>(ctx: &mut C) -> Result<(), GenericError<C::PlatformError>>
 ///     where C: KeyboardContext + UnicodeKeyboardContext + FallibleContext
 /// {
-///     ctx.key_down(Key::ControlOrMeta)?;
+///     ctx.key_down(Key::Meta)?;
 ///     ctx.unicode_string("a")?;
-///     ctx.key_up(Key::ControlOrMeta)
+///     ctx.key_up(Key::Meta)
 /// }
 /// ```
 ///

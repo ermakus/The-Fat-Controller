@@ -33,9 +33,10 @@ impl crate::KeyboardContext for Context {
 const KEY_DELAY: Duration = Duration::from_millis(25);
 
 fn info_from_char(ctx: &Context, group: u8, ch: char) -> Option<KeyInfo> {
-    let key_map: &std::collections::HashMap<char, KeyInfo> = ctx.key_map_vec.get(group as usize).unwrap();
-    if let Some(info) = key_map.get(&ch) {
-        return Some(*info);
+    if let Some(key_map) = ctx.key_map_vec.get(group as usize) {
+        if let Some(info) = key_map.get(&ch) {
+            return Some(*info);
+        }
     }
 
     let keysym = if ch as u32 >= 0x100 {
